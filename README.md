@@ -7,3 +7,8 @@ When scientists are dealing with atoms and molecules, they don't use "Macro" uni
 Nonetheless, even when all the units are conveniently boiled down to be measured with the concept of **energy** in mind, the difference between spectral experimentalists (who often use *cm* inverse) and electronic structure physicists (who mostly use *eV* apparently) in terms of preference of units are not so straightforward. Therefore it will be helpful to young researchers (like myself) to give a brief summary of the relations of all these units, and useful if some tiny "converter" utility is developed to make everybody's life happy and productive.
 
 ## Technical details
+
+## Usage
+Just run the *Python* source code `unit-converter.py` and input the unit you want to convert from, the amount, and the
+unit you want to convert to, it should give you the number up to a certain decimal points.
+
