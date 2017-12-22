@@ -29,10 +29,10 @@ hbar =  6.5821e-16 # the reduced planck constant, h/2pi in unit of eV*s
 
 
 print "Which (energy) unit do you have?"
-unitIn = raw_input("Input(upper and lower cases distinguished and no commas...): eV, cm^-1, kJ/mol, kT, fs^-1, ps^-1  (end with ENTER) :")
+unitIn = raw_input("Input(upper and lower cases distinguished and no commas...): eV, cm^-1, kJ/mol, T(in Kelvin), fs^-1, ps^-1  (end with ENTER) :")
 amountIn = float(raw_input("What is the amount?:"))
 #print "Your unit is", unitIn
-unitOut = raw_input("which unit you want as output?:")
+unitOut = raw_input("which unit you want as output?(thermal unit is kT):")
 
 if unitIn == "eV":
     if unitOut == "kJ/mol":
@@ -177,4 +177,29 @@ if unitIn == "fs^-1":
     else:
         print "Sorry, I have no idea what unit you want output..."         
         
-        
+if unitIn == "T":
+    ToeV = amountIn * 8.62e-5 # We want everything first convert to eV
+    if unitOut == "eV":
+        print amountIn, "1kBT = ", ToeV, "eV"
+    elif unitOut == "cm^-1":
+        amountOut = ToeV / 1.24e-4
+        print amountIn, "1kBT is equivalent to ", amountOut, "cm^-1"
+    elif unitOut == "ps^-1":
+        amountOut = ToeV / 4.135e-3 
+        print amountIn, "1kBT is equivalent to ", amountOut, "ps^-1"
+    elif unitOut == "ps":
+        amountOut = 1 / (ToeV / 4.135e-3) 
+        print amountIn, "1kBT is equivalent to ", amountOut, "ps"
+    elif unitOut == "fs^-1":
+        amountOut = ToeV / 4.135
+        print amountIn, "1kBT is equivalent to ", amountOut, "fs^-1"
+    elif unitOut == "fs":
+        amountOut = 1 / (ToeV / 4.135)
+        print amountIn, "1kBT is equivalent to ", amountOut, "fs"
+    elif unitOut == "kJ/mol":
+        amountOut = ToeV * 96.487
+        print amountIn, "1kBT is equivalent to ", amountOut, "kJ/mol"
+    elif unitOut == "kT":
+        print "No conversion needed"
+    else:
+        print "Sorry, I have no idea what unit you want output..."    
